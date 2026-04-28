@@ -1,9 +1,8 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import jsonify
 
-@app.route('/')
-def home():
-    return "Hello Flask"
-
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route('/api')
+def api():
+    return jsonify({
+        "message": "Hello from Nivetha_new branch",
+        "status": "success"
+    })
