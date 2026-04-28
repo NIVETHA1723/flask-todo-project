@@ -1,8 +1,13 @@
-from flask import jsonify
+from flask import request
 
-@app.route('/api')
-def api():
-    return jsonify({
-        "message": "Hello from Nivetha_new branch",
-        "status": "success"
-    })
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo():
+    data = request.json
+    item_name = data.get("itemName")
+    item_desc = data.get("itemDescription")
+
+    return {
+        "message": "Item received",
+        "itemName": item_name,
+        "itemDescription": item_desc
+    }
